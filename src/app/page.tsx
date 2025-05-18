@@ -1,4 +1,6 @@
 import { CardPost } from "@/components/CardPost";
+import logger from "@/logger";
+import Link from "next/link";
 
 const post = {
   id: 1,
@@ -16,17 +18,25 @@ const post = {
   },
 };
  
-async function getAllPosts () {
-  const res = await fetch('http://localhost:3042/posts')
+async function getAllPosts (page: any) {
+  const res = await fetch(`http://localhost:3042/posts?_page=${page}&_per_page=6`)
   if(!res.ok) {
-    throw new Error('Failed to fetch posts')
+    logger.error('Ops, alguma coisa correu mal')
   }
+  logger.info('Posts obtidos com sucesso!')
   return res.json()
 }
 
-export default async function Home() {
-  const posts = await getAllPosts()
-  return <main>
-    {posts.map((post: any) => <CardPost post={post}/>)}
+export default async function Home({searchParams}: any) {
+  const currentPage = searchParams?.page || 1 
+  const { data: posts, prev, next } = await getAllPosts(currentPage)
+  return <main className="content-area">
+    <div className="grid">
+      {posts.map((post: any) => <CardPost key={post.id} post={post}/>)}
+    </div>
+    <div className="pagination-nav">
+      {prev && <Link className="link" href={`/?page=${prev}`}> Página anterior</Link>}
+      {next && <Link className="link" href={`/?page=${next}`}> Próxima página</Link>}
+    </div>
   </main>;
 }

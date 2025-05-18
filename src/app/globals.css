@@ -10,9 +10,37 @@ body {
   margin: 56px auto;
   display: flex;
   gap: 28px;
-  height: 100vh;
 }
 
 * {
   box-sizing: border-box;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.grid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.link {
+  color: #BFFFC3;
+  
+}
+
+.content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-bottom: 48px;
+}
+
+.pagination-nav {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
 }
