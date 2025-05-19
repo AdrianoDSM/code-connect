@@ -44,3 +44,7 @@ body {
   justify-content: center;
   gap: 16px;
 }
+
+.title {
+  color: white;
+}
