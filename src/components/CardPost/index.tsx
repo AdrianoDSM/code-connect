@@ -10,14 +10,13 @@ export const CardPost = ({ post, highlight }: any) => {
         <header className={styles.header}>
           <figure style={{height: highlight ? 300 : 133}}>
             <Image
-              className={styles.image}
               src={post.cover}
               fill
               alt={`Capa do post de titulo: ${post.title}`}
             />
           </figure>
         </header>
-        <section className={styles.section}>
+        <section className={styles.body}>
           <h2>{post.title}</h2>
           <p>{post.body}</p>
         </section>

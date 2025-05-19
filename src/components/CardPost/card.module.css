@@ -15,11 +15,7 @@
     position: relative;
 }
 
-.image {
-    border-radius: 8px;
-}
-
-.section {
+.body {
     color: #BCBCBC;
     padding: 16px;
     display: flex;
@@ -27,15 +23,15 @@
     gap: 8px;
 }
 
-.section h2 {
+.body h2 {
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
-    line-height: 150%;
+    line-height: 150%; 
     margin: 0;
 }
 
-.section p {
+.body p {
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
