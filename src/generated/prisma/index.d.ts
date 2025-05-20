@@ -3431,19 +3431,19 @@ export namespace Prisma {
 
   export type PostWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    slug?: string
     AND?: PostWhereInput | PostWhereInput[]
     OR?: PostWhereInput[]
     NOT?: PostWhereInput | PostWhereInput[]
     cover?: StringFilter<"Post"> | string
     title?: StringFilter<"Post"> | string
-    slug?: StringFilter<"Post"> | string
     body?: StringFilter<"Post"> | string
     markdown?: StringFilter<"Post"> | string
     createdAt?: DateTimeFilter<"Post"> | Date | string
     updatedAt?: DateTimeFilter<"Post"> | Date | string
     authorId?: IntFilter<"Post"> | number
     author?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "id">
+  }, "id" | "slug">
 
   export type PostOrderByWithAggregationInput = {
     id?: SortOrder
